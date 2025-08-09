@@ -188,12 +188,14 @@ go run .
 
 1) สร้างไฟล์/โฟลเดอร์
 ```
-http/handlers/v3/
+presentation/http/v3/
+  mapper.go
+  transport.go
   swagger_info.go
   book_handler.go    # ก็อปจาก v2 แล้วปรับตามพฤติกรรม v3
 ```
 
-ตัวอย่าง `http/handlers/v3/swagger_info.go`:
+ตัวอย่าง `ithub.com/nuba55yo/go-101-CleanCRUD/presentation/http/v3/swagger_info.go`:
 ```go
 package v3
 
@@ -252,10 +254,10 @@ urls: [
 4) gen สเปกของ v3
 ```powershell
 swag init `
-  -g swagger_info.go `
+  -g .\presentation\http\v3\swagger_info.go `
   -o .\docs\v3 `
   --instanceName v3 `
-  --dir .\http\handlers\v3,.\dto,.\models
+  --dir .\presentation\http\v3,.\application,.\domain
 ```
 
 5) ทดสอบ
